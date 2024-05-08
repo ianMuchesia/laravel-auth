@@ -29,7 +29,7 @@
             <input type="checkbox" @if(in_array($item->id, $rolePermission))
             checked
             @endif
-            value="{{$item->id}}" class="form-check-input" name="permission[]">
+            value="{{$item->name}}" class="form-check-input" name="permission[]">
             <label class="form-check-label" for="checkChecked">
                 {{$item->name}}
             </label>

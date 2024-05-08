@@ -1,0 +1,1 @@
+<h1 class="text-8xl">internal server error</h1>

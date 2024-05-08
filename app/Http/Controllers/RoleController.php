@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Role;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
@@ -50,7 +51,10 @@ class RoleController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
+        // Log::info('Request permission:', $request->permission); // Log the request permission
+
         $role = Role::create(['name' => $request->name]);
+
         $role->syncPermissions($request->permission);
 
         return back()->with('success', 'Role created successfully');
